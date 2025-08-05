@@ -51,7 +51,7 @@ const Login = (props) => {
     >
       <div className="relative max-w-3xl w-full flex items-center justify-center">
         {/* Login Card */}
-        <div className="relative backdrop-blur-xl p-4 rounded-xl shadow-l z-10 w-full max-w-md">
+        <div className="relative backdrop-blur-xl p-4 mt-8 mb-0 rounded-xl shadow-l z-10 w-full max-w-md">
           <LogIn className="mx-auto mb-3 h-12 w-10 text-black" />
           <h2 className="text-2xl text-center font-bold text-gray-950 mb-2">
             Login to continue to iNotebook
