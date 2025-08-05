@@ -1,11 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 import Loading from "./Loading";
 import { UserPlus } from "lucide-react";
 
 const Signup = (props) => {
-  const [credentials, setCredentials] = useState({ name: "", email: "", password: "", cpassword: "" });
+  const [credentials, setCredentials] = useState({
+    name: "",
+    email: "",
+    password: "",
+    cpassword: "",
+  });
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -20,13 +26,16 @@ const Signup = (props) => {
 
     setLoading(true);
     try {
-      const response = await fetch("https://inotebook-backend-kgs1.onrender.com/api/auth/createuser",{
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name, email, password }),
-      });
+      const response = await fetch(
+        "https://inotebook-backend-kgs1.onrender.com/api/auth/createuser",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ name, email, password }),
+        }
+      );
 
       const json = await response.json();
       console.log(json);
@@ -54,7 +63,7 @@ const Signup = (props) => {
       className="flex-grow bg-cover bg-center flex justify-center items-center px-4"
       style={{
         backgroundImage: "url('/images/clouds.png')",
-        minHeight: "calc(100vh - 45px - 12px)", 
+        minHeight: "calc(100vh - 45px - 12px)",
       }}
     >
       <div className="relative max-w-3xl w-full flex items-center justify-center">
@@ -72,7 +81,12 @@ const Signup = (props) => {
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
+              <label
+                htmlFor="name"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Name
+              </label>
               <input
                 type="text"
                 id="name"
@@ -84,7 +98,12 @@ const Signup = (props) => {
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Email
+              </label>
               <input
                 type="email"
                 id="email"
@@ -93,11 +112,18 @@ const Signup = (props) => {
                 required
                 className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-brand-accent"
               />
-              <p className="text-xs text-gray-500 mt-1">We'll never share your email with anyone else.</p>
+              <p className="text-xs text-gray-500 mt-1">
+                We'll never share your email with anyone else.
+              </p>
             </div>
 
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
+              <label
+                htmlFor="password"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Password
+              </label>
               <input
                 type="password"
                 id="password"
@@ -110,7 +136,12 @@ const Signup = (props) => {
             </div>
 
             <div>
-              <label htmlFor="cpassword" className="block text-sm font-medium text-gray-700">Confirm Password</label>
+              <label
+                htmlFor="cpassword"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Confirm Password
+              </label>
               <input
                 type="password"
                 id="cpassword"
@@ -121,7 +152,12 @@ const Signup = (props) => {
                 className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-brand-accent"
               />
             </div>
-
+            <p className="mt-2 text-sm text-stone-900 text-center">
+              Already have an account?{" "}
+              <Link to="/Login" className="text-blue-600 hover:underline">
+                <u> Login</u>
+              </Link>
+            </p>
             <button
               type="submit"
               className="w-full py-3 px-5 bg-brand-gradient text-white font-semibold rounded-md transition disabled:opacity-50"

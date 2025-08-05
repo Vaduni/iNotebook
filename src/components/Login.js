@@ -105,10 +105,10 @@ const Login = (props) => {
                   onChange={onChange}
                   className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-brand-accent focus:outline-none"
                 />
-                <p className="mt-2 text-sm text-gray-700">
+                <p className="mt-2 text-sm text-stone-900 text-center">
                   Don’t have an account?{" "}
                   <Link to="/Signup" className="text-blue-600 hover:underline">
-                    Sign up
+                 <u>   Sign up</u>
                   </Link>
                 </p>
               </div>
